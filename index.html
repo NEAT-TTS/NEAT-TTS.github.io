@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="NEAT-TTS: paper subtitle goes here">
+  <meta property="og:title" content="NEAT-TTS" />
+  <meta property="og:description" content="Paper description goes here." />
+  <meta property="og:url" content="https://neat-tts.github.io/" />
+  <meta property="og:image" content="static/images/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:title" content="NEAT-TTS">
+  <meta name="twitter:description" content="Paper description goes here.">
+  <meta name="twitter:image" content="static/images/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="keywords" content="text-to-speech, tts">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>NEAT-TTS</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <style>
+    .results-wrap { overflow-x: auto; margin: 0 auto 2rem; }
+    .results-table {
+      font-size: 0.8rem;
+      border-collapse: collapse;
+      width: 100%;
+      white-space: nowrap;
+    }
+    .results-table th,
+    .results-table td {
+      border: 1px solid #e4e4e4;
+      padding: 6px 8px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .results-table th { background: #f5f5f5; font-weight: 600; }
+    .results-table td:first-child,
+    .results-table th:first-child { text-align: left; }
+    .results-table tbody tr:nth-child(even) { background: #fafafa; }
+    .results-table .best { font-weight: 700; }
+    .results-table .second { text-decoration: underline; text-underline-offset: 2px; }
+    .results-table tbody tr.ours td { background: #f3f7fc; }
+    .results-note { font-size: 0.8rem; color: #8a8a8a; text-align: center; margin-top: -1.2rem; margin-bottom: 2.4rem; }
+    .ph-note { font-size: 0.85rem; color: #9a9a9a; margin-bottom: 1rem; }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+
+            <h1 class="title is-2 publication-title" style="margin-left: -25px; margin-right: -25px; font-size: 2.1rem;">
+              NEAT-TTS: Paper Title Goes Here</h1>
+            <div class="is-size-6 publication-authors">
+              <span class="author-block">First Author<sup>1</sup>,</span>
+              <span class="author-block">Second Author<sup>1</sup></span>
+            </div>
+
+            <div class="is-size-6 publication-authors">
+              <span class="author-block">
+                <sup>1</sup>Affiliation Goes Here
+              </span>
+              <span class="eql-cntrb"><small><br><sup>*</sup>Corresponding author</small></span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- arXiv: link to be filled -->
+                <span class="link-block">
+                  <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Teaser -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+
+      <div style="width: 85%; height: auto; margin: 0 auto;">
+        <div class="ph-note" style="text-align: center;">
+          [ Teaser image goes here &mdash; put your figure at <code>static/images/fig1_teaser.png</code> ]
+        </div>
+      </div>
+
+      <p>
+        <div class="content has-text-justified" style="margin: 0 0;">
+          <br>
+          One-paragraph overview of the paper goes here: what the model is, what makes it different,
+          and the headline result. Keep it to a few sentences &mdash; the abstract carries the details.
+          <br>
+        </div>
+      </p>
+
+    </div>
+  </div>
+</section>
+<!-- End teaser -->
+
+
+<!-- Overall architecture -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3" style="text-align: center; margin-bottom: 1rem; margin-left: 0; margin-right: 0">
+        <br>
+        Overall Architecture</h2>
+      <p>
+        <div class="content has-text-justified" style="margin: 0 0px;">
+          <br>
+          Description of the proposed architecture goes here.
+        </div>
+      </p>
+      <div style="width: 100%; height: auto; margin: 0 auto;">
+        <br>
+        <div class="ph-note" style="text-align: center;">
+          [ Architecture figure goes here &mdash; put your figure at <code>static/images/fig2_architecture.png</code> ]
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End overall architecture -->
+
+
+<!-- Main results -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3" style="text-align: center; margin-bottom: 1rem; margin-left: 0; margin-right: 0">
+        <br>
+        Main Results</h2>
+      <p>
+        <div class="content has-text-justified" style="margin: 0 0px;">
+          <br>
+          Summary of the main results goes here.
+        </div>
+      </p>
+
+      <div class="results-wrap">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th rowspan="2">Model</th>
+              <th colspan="3">Metric Group A</th>
+              <th colspan="3">Metric Group B</th>
+            </tr>
+            <tr>
+              <th>M1&darr;</th>
+              <th>M2&uarr;</th>
+              <th>M3&uarr;</th>
+              <th>M4&darr;</th>
+              <th>M5&uarr;</th>
+              <th>M6&uarr;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Baseline A</td>
+              <td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td>
+            </tr>
+            <tr>
+              <td>Baseline B</td>
+              <td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td>
+            </tr>
+            <tr class="ours">
+              <td>NEAT-TTS (Ours)</td>
+              <td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="results-note">
+        <strong>Bold</strong> and <span style="text-decoration: underline;">underline</span> indicate best and second-best results.
+      </p>
+
+    </div>
+  </div>
+</section>
+<!-- End main results -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+  </body>
+  </html>
