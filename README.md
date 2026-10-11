@@ -1,35 +1,42 @@
-# NEAT-TTS project page
+# NEAT-TTS demo page
 
 Live site: https://neat-tts.github.io/
 
-Built on the [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template)
-(same layout as the Resonate / MeanAudio project pages). Static HTML, no build step.
+Same layout as the [F5-TTS](https://swivid.github.io/F5-TTS/) and [WavTTS](https://wavtts.github.io/) demo pages
+(Bootstrap 5.1.3 + `custom.css` / `normalize.css`, copied byte-for-byte). Static HTML, no build step.
 
 ## Layout
 
 ```
-index.html                  # hero / teaser / Overall Architecture / Main Results / footer
-.nojekyll                   # disables Jekyll so static/ is served as-is
-static/css, static/js       # template assets (all local)
-static/images/              # put figures here
-static/audio/               # audio samples (not shown on the page yet)
+index.html          # title card / Model Overview / English & Chinese zero-shot tables
+.nojekyll           # disables Jekyll
+css/                # bootstrap.min.css, custom.css, normalize.css
+figs/overview.png   # Figure 1 (model overview)
+audios/en/prompt/NN.wav   audios/en/gen/NN.wav
+audios/zh/prompt/NN.wav   audios/zh/gen/NN.wav
 ```
 
-## Filling in the placeholders
+## Placeholders
+
+Missing audio files and figures are shown as dashed filename blocks. Drop the file at the shown path
+and refresh; no code changes needed.
 
 | Placeholder | Where |
 | --- | --- |
-| Title, authors, affiliations | hero section in `index.html` |
-| arXiv / Code links | `publication-links` block (`href="#"` for now) |
-| Teaser figure | `static/images/fig1_teaser.png`, then replace the `.ph-note` block with an `<img>` |
-| Architecture figure | `static/images/fig2_architecture.png`, same as above |
-| Results table | `results-table` in the Main Results section |
-| Social card | `static/images/og.png` (1200x630) |
+| Title / subtitle | title card in `index.html` |
+| Code / Paper links | `<h5>` line under the subtitle (`href="#"` for now) |
+| Abstract | `Abstract:` paragraph |
+| Figure 1 + caption | `figs/overview.png`, `Figure 1` caption |
+| Target text | `Text` column of each table |
+| Audio | 5 rows x (prompt, gen) x (en, zh) = 20 files |
+
+To add a section (e.g. cross-lingual, speed control, baselines), copy one `shadow-lg` card,
+give the `<h2>` a new `id`, and add it to the Contents list.
 
 ## Audio
 
-Do not commit large audio files. GitHub Pages does not support Git LFS and caps single files at 100 MB.
-Encode samples as mono mp3/opus (64–96 kbps) before committing; host large sets on HuggingFace or GitHub Releases.
+GitHub Pages does not support Git LFS and caps single files at 100 MB. Keep samples short;
+if you switch to mp3, update the `src` / `data-file` extensions too.
 
 ## Publishing
 

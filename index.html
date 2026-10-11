@@ -2,241 +2,187 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="NEAT-TTS: paper subtitle goes here">
-  <meta property="og:title" content="NEAT-TTS" />
-  <meta property="og:description" content="Paper description goes here." />
-  <meta property="og:url" content="https://neat-tts.github.io/" />
-  <meta property="og:image" content="static/images/og.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/normalize.css">
 
-  <meta name="twitter:title" content="NEAT-TTS">
-  <meta name="twitter:description" content="Paper description goes here.">
-  <meta name="twitter:image" content="static/images/og.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="keywords" content="text-to-speech, tts">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>NEAT-TTS</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 
-  <title>NEAT-TTS</title>
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-
-  <style>
-    .results-wrap { overflow-x: auto; margin: 0 auto 2rem; }
-    .results-table {
-      font-size: 0.8rem;
-      border-collapse: collapse;
-      width: 100%;
-      white-space: nowrap;
-    }
-    .results-table th,
-    .results-table td {
-      border: 1px solid #e4e4e4;
-      padding: 6px 8px;
-      text-align: center;
-      vertical-align: middle;
-    }
-    .results-table th { background: #f5f5f5; font-weight: 600; }
-    .results-table td:first-child,
-    .results-table th:first-child { text-align: left; }
-    .results-table tbody tr:nth-child(even) { background: #fafafa; }
-    .results-table .best { font-weight: 700; }
-    .results-table .second { text-decoration: underline; text-underline-offset: 2px; }
-    .results-table tbody tr.ours td { background: #f3f7fc; }
-    .results-note { font-size: 0.8rem; color: #8a8a8a; text-align: center; margin-top: -1.2rem; margin-bottom: 2.4rem; }
-    .ph-note { font-size: 0.85rem; color: #9a9a9a; margin-bottom: 1rem; }
-  </style>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
+	<style>
+		/* placeholder: shown when an audio file or figure is not uploaded yet */
+		td.is-placeholder audio { display: none; }
+		td.is-placeholder::after,
+		.fig-placeholder {
+			content: attr(data-file);
+			display: inline-block;
+			border: 1px dashed #cfcfcf;
+			border-radius: 4px;
+			padding: 6px 12px;
+			background: #fafafa;
+			font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+			font-size: 0.6em;
+			color: #a0a0a0;
+		}
+		.fig-placeholder { padding: 80px 40px; width: 75%; }
+	</style>
 </head>
+
 
 <body>
 
+	<div class="container">
+		<header role="banner">
+		</header>
+		<main role="main">
+			<article itemscope itemtype="https://schema.org/BlogPosting">
 
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-
-            <h1 class="title is-2 publication-title" style="margin-left: -25px; margin-right: -25px; font-size: 2.1rem;">
-              NEAT-TTS: Paper Title Goes Here</h1>
-            <div class="is-size-6 publication-authors">
-              <span class="author-block">First Author<sup>1</sup>,</span>
-              <span class="author-block">Second Author<sup>1</sup></span>
-            </div>
-
-            <div class="is-size-6 publication-authors">
-              <span class="author-block">
-                <sup>1</sup>Affiliation Goes Here
-              </span>
-              <span class="eql-cntrb"><small><br><sup>*</sup>Corresponding author</small></span>
-            </div>
-
-            <div class="column has-text-centered">
-              <div class="publication-links">
-                <!-- arXiv: link to be filled -->
-                <span class="link-block">
-                  <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="ai ai-arxiv"></i></span>
-                    <span>arXiv</span>
-                  </a>
-                </span>
-                <span class="link-block">
-                  <a href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fab fa-github"></i></span>
-                    <span>Code</span>
-                  </a>
-                </span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+				<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
+					<div class="text-center">
+						<h2 style="font-size: 32px;">NEAT-TTS</h2>
+						<h3 style="font-size: 24px;">Paper Subtitle Goes Here</h3>
+						<h5><a href="#" target="_blank" rel="noopener noreferrer">Code</a>; <a href="#" target="_blank" rel="noopener noreferrer">Paper</a></h5>
+					</div>
+					<p><b>Abstract:</b>
+						Abstract goes here.
+					</p>
+					<br>
+					<p>
+						<b>Contents</b>
+					<ul>
+						<li><a href="#model-overview">Model Overview</a></li>
+						<li><a href="#english-zero-shot">English Zero-shot Generation</a></li>
+						<li><a href="#chinese-zero-shot">Chinese Zero-shot Generation</a></li>
+					</ul>
+					</p>
+				</div>
 
 
-<!-- Teaser -->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-
-      <div style="width: 85%; height: auto; margin: 0 auto;">
-        <div class="ph-note" style="text-align: center;">
-          [ Teaser image goes here &mdash; put your figure at <code>static/images/fig1_teaser.png</code> ]
-        </div>
-      </div>
-
-      <p>
-        <div class="content has-text-justified" style="margin: 0 0;">
-          <br>
-          One-paragraph overview of the paper goes here: what the model is, what makes it different,
-          and the headline result. Keep it to a few sentences &mdash; the abstract carries the details.
-          <br>
-        </div>
-      </p>
-
-    </div>
-  </div>
-</section>
-<!-- End teaser -->
+				<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
+					<h2 id="model-overview" style="text-align: center;">Model Overview</h2>
+					<p style="text-align: center;">
+						<img src="figs/overview.png" data-file="figs/overview.png" style="max-width: 75%; height: auto;">
+					</p>
+					<p style="text-align: center; font-size: 1.3em;">
+						<b>Figure 1</b>: Figure caption goes here.
+					</p>
+				</div>
 
 
-<!-- Overall architecture -->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <h2 class="title is-3" style="text-align: center; margin-bottom: 1rem; margin-left: 0; margin-right: 0">
-        <br>
-        Overall Architecture</h2>
-      <p>
-        <div class="content has-text-justified" style="margin: 0 0px;">
-          <br>
-          Description of the proposed architecture goes here.
-        </div>
-      </p>
-      <div style="width: 100%; height: auto; margin: 0 auto;">
-        <br>
-        <div class="ph-note" style="text-align: center;">
-          [ Architecture figure goes here &mdash; put your figure at <code>static/images/fig2_architecture.png</code> ]
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- End overall architecture -->
-
-
-<!-- Main results -->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <h2 class="title is-3" style="text-align: center; margin-bottom: 1rem; margin-left: 0; margin-right: 0">
-        <br>
-        Main Results</h2>
-      <p>
-        <div class="content has-text-justified" style="margin: 0 0px;">
-          <br>
-          Summary of the main results goes here.
-        </div>
-      </p>
-
-      <div class="results-wrap">
-        <table class="results-table">
-          <thead>
-            <tr>
-              <th rowspan="2">Model</th>
-              <th colspan="3">Metric Group A</th>
-              <th colspan="3">Metric Group B</th>
-            </tr>
-            <tr>
-              <th>M1&darr;</th>
-              <th>M2&uarr;</th>
-              <th>M3&uarr;</th>
-              <th>M4&darr;</th>
-              <th>M5&uarr;</th>
-              <th>M6&uarr;</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Baseline A</td>
-              <td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td>
-            </tr>
-            <tr>
-              <td>Baseline B</td>
-              <td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td>
-            </tr>
-            <tr class="ours">
-              <td>NEAT-TTS (Ours)</td>
-              <td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="results-note">
-        <strong>Bold</strong> and <span style="text-decoration: underline;">underline</span> indicate best and second-best results.
-      </p>
-
-    </div>
-  </div>
-</section>
-<!-- End main results -->
+				<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
+					<h2 id="english-zero-shot" style="text-align: center;">English Zero-shot Generation</h2>
+					<div class="table-responsive pt-3">
+						<table class="table table-hover pt-2">
+							<thead>
+								<tr>
+									<th style="vertical-align : middle;text-align: center">Prompt</th>
+									<th style="vertical-align : middle;text-align: center">Text</th>
+									<th style="vertical-align : middle;text-align: center">NEAT-TTS</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/prompt/01.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/prompt/01.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">Target text goes here.</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/gen/01.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/gen/01.wav" />Your browser does not support the audio element.</audio></td>
+								</tr>
+								<tr>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/prompt/02.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/prompt/02.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">Target text goes here.</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/gen/02.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/gen/02.wav" />Your browser does not support the audio element.</audio></td>
+								</tr>
+								<tr>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/prompt/03.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/prompt/03.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">Target text goes here.</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/gen/03.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/gen/03.wav" />Your browser does not support the audio element.</audio></td>
+								</tr>
+								<tr>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/prompt/04.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/prompt/04.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">Target text goes here.</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/gen/04.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/gen/04.wav" />Your browser does not support the audio element.</audio></td>
+								</tr>
+								<tr>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/prompt/05.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/prompt/05.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">Target text goes here.</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/gen/05.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/gen/05.wav" />Your browser does not support the audio element.</audio></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<br>
+				</div>
 
 
-<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
+				<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
+					<h2 id="chinese-zero-shot" style="text-align: center;">Chinese Zero-shot Generation</h2>
+					<div class="table-responsive pt-3">
+						<table class="table table-hover pt-2">
+							<thead>
+								<tr>
+									<th style="vertical-align : middle;text-align: center">Prompt</th>
+									<th style="vertical-align : middle;text-align: center">Text</th>
+									<th style="vertical-align : middle;text-align: center">NEAT-TTS</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/prompt/01.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/prompt/01.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">目标文本放在这里。</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/gen/01.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/gen/01.wav" />Your browser does not support the audio element.</audio></td>
+								</tr>
+								<tr>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/prompt/02.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/prompt/02.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">目标文本放在这里。</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/gen/02.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/gen/02.wav" />Your browser does not support the audio element.</audio></td>
+								</tr>
+								<tr>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/prompt/03.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/prompt/03.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">目标文本放在这里。</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/gen/03.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/gen/03.wav" />Your browser does not support the audio element.</audio></td>
+								</tr>
+								<tr>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/prompt/04.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/prompt/04.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">目标文本放在这里。</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/gen/04.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/gen/04.wav" />Your browser does not support the audio element.</audio></td>
+								</tr>
+								<tr>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/prompt/05.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/prompt/05.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">目标文本放在这里。</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/gen/05.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/gen/05.wav" />Your browser does not support the audio element.</audio></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<br>
+				</div>
 
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-          </p>
 
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+			</article>
+		</main>
+	</div>
 
+	<script>
+	// Swap missing audio / figures for a dashed filename block; drop the file in and refresh to restore.
+	document.addEventListener('DOMContentLoaded', function () {
+		document.querySelectorAll('td[data-file]').forEach(function (td) {
+			fetch(td.getAttribute('data-file'), { method: 'HEAD' })
+				.then(function (r) { if (!r.ok) td.classList.add('is-placeholder'); })
+				.catch(function () { td.classList.add('is-placeholder'); });
+		});
+		document.querySelectorAll('img[data-file]').forEach(function (img) {
+			img.addEventListener('error', function () {
+				var box = document.createElement('span');
+				box.className = 'fig-placeholder';
+				box.textContent = img.getAttribute('data-file');
+				img.replaceWith(box);
+			});
+			if (img.complete && img.naturalWidth === 0) img.dispatchEvent(new Event('error'));
+		});
+	});
+	</script>
 
+</body>
 
-  </body>
-  </html>
+</html>
