@@ -55,7 +55,6 @@
 						<li><a href="#english-zero-shot">English Zero-shot Generation</a></li>
 						<li><a href="#chinese-zero-shot">Chinese Zero-shot Generation</a></li>
 						<li><a href="#results">Main Results</a></li>
-						<li><a href="#ablation">Ablation Studies</a></li>
 					</ul>
 					</p>
 					<p><b>This page is for research demonstration purposes only.</b></p>
@@ -217,40 +216,6 @@
 					</p>
 				</div>
 
-				<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
-					<h2 id="ablation" style="text-align: center;">Ablation Studies</h2>
-					<p><b>Induced instantaneous velocity.</b> Replacing the induced velocity V<sub>&theta;</sub>(z<sub>t</sub>, r, t) in the GEMA loss with the direct instantaneous prediction u<sub>&theta;</sub>(z<sub>t</sub>, t, t) gives similar rewards early in training but collapses after about 1,700 updates.</p>
-					<p style="text-align: center;">
-						<img src="figs/gema_induced_velocity.png" data-file="figs/gema_induced_velocity.png" style="max-width: 85%; height: auto;">
-					</p>
-					<p style="text-align: center; font-size: 1.1em;">
-						<b>Figure 2</b>: GEMA reward curves using induced velocity V<sub>&theta;</sub>(z<sub>t</sub>, r, t) versus instantaneous velocity u<sub>&theta;</sub>(z<sub>t</sub>, t, t).
-					</p>
-					<br>
-					<p><b>Flow ratio.</b> The flow ratio is the probability of setting r = t when constructing V<sub>&theta;</sub>; NEAT-TTS uses 0.75.</p>
-					<p style="text-align: center;">
-						<img src="figs/gema_flow_ratio.png" data-file="figs/gema_flow_ratio.png" style="max-width: 85%; height: auto;">
-					</p>
-					<p style="text-align: center; font-size: 1.1em;">
-						<b>Figure 3</b>: GEMA reward curves under different flow ratios.
-					</p>
-					<br>
-					<p><b>Inference schedules.</b> Four timestep schedules under the same four-step budget: Uniform, Sway Sampling, PolyShift and EPSS. EPSS achieves the best WER and SIM-o on both Seed-TTS test sets.</p>
-					<p style="text-align: center;">
-						<img src="figs/inference_schedule.png" data-file="figs/inference_schedule.png" style="max-width: 85%; height: auto;">
-					</p>
-					<p style="text-align: center; font-size: 1.1em;">
-						<b>Figure 4</b>: Different four-step inference schedules. Left: timestep grids; right: progress covered at each step.
-					</p>
-					<br>
-					<p><b>CFG strength.</b> With guidance strength provided as a model condition, the CFG scale can be changed at inference without an additional forward pass. Increasing CFG generally reduces WER, while overly strong guidance degrades speaker similarity.</p>
-					<p style="text-align: center;">
-						<img src="figs/cfg_strength_zh.png" data-file="figs/cfg_strength_zh.png" style="max-width: 85%; height: auto;">
-					</p>
-					<p style="text-align: center; font-size: 1.1em;">
-						<b>Figure 5</b>: WER and speaker similarity versus CFG scale on Seed-TTS-zh (NFE = 4).
-					</p>
-				</div>
 
 			</article>
 		</main>

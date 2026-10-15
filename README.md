@@ -8,11 +8,10 @@ Same layout as the [F5-TTS](https://swivid.github.io/F5-TTS/) and [WavTTS](https
 ## Layout
 
 ```
-index.html          # title / Model Overview / EN & ZH zero-shot / Main Results / Ablation Studies
+index.html          # title / Model Overview / EN & ZH zero-shot / Main Results
 .nojekyll           # disables Jekyll
 css/                # bootstrap.min.css, custom.css, normalize.css
 figs/overview.png   # Figure 1 (model overview, rendered from NEAT_TTS_Model.pdf p.1)
-figs/gema_induced_velocity.png  gema_flow_ratio.png  inference_schedule.png  cfg_strength_zh.png
 audios/{en,zh}/prompt/NN.wav   # reference prompt (Seed-TTS test set)
 audios/{en,zh}/small/NN.wav    # NEAT-TTS Small (121M)
 audios/{en,zh}/base/NN.wav     # NEAT-TTS Base (338M)
