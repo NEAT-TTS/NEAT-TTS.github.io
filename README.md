@@ -13,8 +13,9 @@ index.html          # title / Model Overview / EN & ZH zero-shot / Main Results 
 css/                # bootstrap.min.css, custom.css, normalize.css
 figs/overview.png   # Figure 1 (model overview, rendered from NEAT_TTS_Model.pdf p.1)
 figs/gema_induced_velocity.png  gema_flow_ratio.png  inference_schedule.png  cfg_strength_zh.png
-audios/en/prompt/NN.wav   audios/en/gen/NN.wav
-audios/zh/prompt/NN.wav   audios/zh/gen/NN.wav
+audios/{en,zh}/prompt/NN.wav   # reference prompt (Seed-TTS test set)
+audios/{en,zh}/small/NN.wav    # NEAT-TTS Small (121M)
+audios/{en,zh}/base/NN.wav     # NEAT-TTS Base (338M)
 ```
 
 ## Placeholders
@@ -26,7 +27,7 @@ and refresh; no code changes needed.
 | --- | --- |
 | Code / Paper links | commented-out `<h5>` line under the subtitle (hidden during anonymous review) |
 | Target text | `Text` column of each table |
-| Audio | 5 rows x (prompt, gen) x (en, zh) = 20 files |
+| Audio | filled: 5 rows x (prompt, small, base) x (en, zh) = 30 files, -23 LUFS, original sample rates |
 
 To add a section (e.g. cross-lingual, speed control, baselines), copy one `shadow-lg` card,
 give the `<h2>` a new `id`, and add it to the Contents list.

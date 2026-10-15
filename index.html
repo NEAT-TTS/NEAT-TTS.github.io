@@ -69,7 +69,7 @@
 					<p style="text-align: center; font-size: 1.1em;">
 						<b>Figure 1</b>: Overview of NEAT-TTS, a native and efficient few-step zero-shot TTS model. (a) Training with the CFG-conditioned improved MeanFlow objective; (b) four-NFE inference.
 					</p>
-					<p>All samples in this demo page are generated with NEAT-TTS using four NFEs, the EPSS schedule and CFG &omega; = 7, without any step distillation.</p>
+					<p>All samples in this demo page are generated with NEAT-TTS Small (121M) and Base (338M) using four NFEs, the EPSS schedule and CFG &omega; = 7, without any step distillation.</p>
 				</div>
 
 				<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
@@ -81,34 +81,40 @@
 								<tr>
 									<th style="vertical-align : middle;text-align: center">Prompt</th>
 									<th style="vertical-align : middle;text-align: center">Text</th>
-									<th style="vertical-align : middle;text-align: center">NEAT-TTS</th>
+									<th style="vertical-align : middle;text-align: center">NEAT-TTS Small</th>
+									<th style="vertical-align : middle;text-align: center">NEAT-TTS Base</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/prompt/01.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/prompt/01.wav" />Your browser does not support the audio element.</audio></td>
-									<td style="vertical-align : middle;text-align:center;">Target text goes here.</td>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/gen/01.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/gen/01.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/prompt/01.wav"><audio controls="controls" style="width: 240px;"><source src="audios/en/prompt/01.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">A judge later found that Harrison had unintentionally plagiarized the earlier song.</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/small/01.wav"><audio controls="controls" style="width: 240px;"><source src="audios/en/small/01.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/base/01.wav"><audio controls="controls" style="width: 240px;"><source src="audios/en/base/01.wav" />Your browser does not support the audio element.</audio></td>
 								</tr>
 								<tr>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/prompt/02.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/prompt/02.wav" />Your browser does not support the audio element.</audio></td>
-									<td style="vertical-align : middle;text-align:center;">Target text goes here.</td>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/gen/02.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/gen/02.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/prompt/02.wav"><audio controls="controls" style="width: 240px;"><source src="audios/en/prompt/02.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">Moreover, because none of the neighbors remember her, they cannot confirm her identity.</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/small/02.wav"><audio controls="controls" style="width: 240px;"><source src="audios/en/small/02.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/base/02.wav"><audio controls="controls" style="width: 240px;"><source src="audios/en/base/02.wav" />Your browser does not support the audio element.</audio></td>
 								</tr>
 								<tr>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/prompt/03.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/prompt/03.wav" />Your browser does not support the audio element.</audio></td>
-									<td style="vertical-align : middle;text-align:center;">Target text goes here.</td>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/gen/03.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/gen/03.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/prompt/03.wav"><audio controls="controls" style="width: 240px;"><source src="audios/en/prompt/03.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">Its main building is a huge pyramid containing an entire city inside.</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/small/03.wav"><audio controls="controls" style="width: 240px;"><source src="audios/en/small/03.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/base/03.wav"><audio controls="controls" style="width: 240px;"><source src="audios/en/base/03.wav" />Your browser does not support the audio element.</audio></td>
 								</tr>
 								<tr>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/prompt/04.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/prompt/04.wav" />Your browser does not support the audio element.</audio></td>
-									<td style="vertical-align : middle;text-align:center;">Target text goes here.</td>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/gen/04.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/gen/04.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/prompt/04.wav"><audio controls="controls" style="width: 240px;"><source src="audios/en/prompt/04.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">The Council is responsible for carrying out both foreign and domestic policies.</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/small/04.wav"><audio controls="controls" style="width: 240px;"><source src="audios/en/small/04.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/base/04.wav"><audio controls="controls" style="width: 240px;"><source src="audios/en/base/04.wav" />Your browser does not support the audio element.</audio></td>
 								</tr>
 								<tr>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/prompt/05.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/prompt/05.wav" />Your browser does not support the audio element.</audio></td>
-									<td style="vertical-align : middle;text-align:center;">Target text goes here.</td>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/gen/05.wav"><audio controls="controls" style="width: 280px;"><source src="audios/en/gen/05.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/prompt/05.wav"><audio controls="controls" style="width: 240px;"><source src="audios/en/prompt/05.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">After I had finished the first batch of papers, I was getting into the workflow.</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/small/05.wav"><audio controls="controls" style="width: 240px;"><source src="audios/en/small/05.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/en/base/05.wav"><audio controls="controls" style="width: 240px;"><source src="audios/en/base/05.wav" />Your browser does not support the audio element.</audio></td>
 								</tr>
 							</tbody>
 						</table>
@@ -125,34 +131,40 @@
 								<tr>
 									<th style="vertical-align : middle;text-align: center">Prompt</th>
 									<th style="vertical-align : middle;text-align: center">Text</th>
-									<th style="vertical-align : middle;text-align: center">NEAT-TTS</th>
+									<th style="vertical-align : middle;text-align: center">NEAT-TTS Small</th>
+									<th style="vertical-align : middle;text-align: center">NEAT-TTS Base</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/prompt/01.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/prompt/01.wav" />Your browser does not support the audio element.</audio></td>
-									<td style="vertical-align : middle;text-align:center;">目标文本放在这里。</td>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/gen/01.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/gen/01.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/prompt/01.wav"><audio controls="controls" style="width: 240px;"><source src="audios/zh/prompt/01.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">全球每年有超过一百三十五万人，因交通事故而死亡。</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/small/01.wav"><audio controls="controls" style="width: 240px;"><source src="audios/zh/small/01.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/base/01.wav"><audio controls="controls" style="width: 240px;"><source src="audios/zh/base/01.wav" />Your browser does not support the audio element.</audio></td>
 								</tr>
 								<tr>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/prompt/02.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/prompt/02.wav" />Your browser does not support the audio element.</audio></td>
-									<td style="vertical-align : middle;text-align:center;">目标文本放在这里。</td>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/gen/02.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/gen/02.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/prompt/02.wav"><audio controls="controls" style="width: 240px;"><source src="audios/zh/prompt/02.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">我们将为全球城市的可持续发展贡献力量。</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/small/02.wav"><audio controls="controls" style="width: 240px;"><source src="audios/zh/small/02.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/base/02.wav"><audio controls="controls" style="width: 240px;"><source src="audios/zh/base/02.wav" />Your browser does not support the audio element.</audio></td>
 								</tr>
 								<tr>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/prompt/03.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/prompt/03.wav" />Your browser does not support the audio element.</audio></td>
-									<td style="vertical-align : middle;text-align:center;">目标文本放在这里。</td>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/gen/03.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/gen/03.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/prompt/03.wav"><audio controls="controls" style="width: 240px;"><source src="audios/zh/prompt/03.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">让用户随时随地能够在更庞大的人群中，分享音乐的乐趣。</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/small/03.wav"><audio controls="controls" style="width: 240px;"><source src="audios/zh/small/03.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/base/03.wav"><audio controls="controls" style="width: 240px;"><source src="audios/zh/base/03.wav" />Your browser does not support the audio element.</audio></td>
 								</tr>
 								<tr>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/prompt/04.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/prompt/04.wav" />Your browser does not support the audio element.</audio></td>
-									<td style="vertical-align : middle;text-align:center;">目标文本放在这里。</td>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/gen/04.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/gen/04.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/prompt/04.wav"><audio controls="controls" style="width: 240px;"><source src="audios/zh/prompt/04.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">而且谦恭，要是可以，我真想亲眼见见他。</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/small/04.wav"><audio controls="controls" style="width: 240px;"><source src="audios/zh/small/04.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/base/04.wav"><audio controls="controls" style="width: 240px;"><source src="audios/zh/base/04.wav" />Your browser does not support the audio element.</audio></td>
 								</tr>
 								<tr>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/prompt/05.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/prompt/05.wav" />Your browser does not support the audio element.</audio></td>
-									<td style="vertical-align : middle;text-align:center;">目标文本放在这里。</td>
-									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/gen/05.wav"><audio controls="controls" style="width: 280px;"><source src="audios/zh/gen/05.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/prompt/05.wav"><audio controls="controls" style="width: 240px;"><source src="audios/zh/prompt/05.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;">当他们系上滑雪板，第一阵迷雾已经降下来。</td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/small/05.wav"><audio controls="controls" style="width: 240px;"><source src="audios/zh/small/05.wav" />Your browser does not support the audio element.</audio></td>
+									<td style="vertical-align : middle;text-align:center;" data-file="audios/zh/base/05.wav"><audio controls="controls" style="width: 240px;"><source src="audios/zh/base/05.wav" />Your browser does not support the audio element.</audio></td>
 								</tr>
 							</tbody>
 						</table>
