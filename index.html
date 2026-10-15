@@ -12,7 +12,6 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 
 	<style>
-		/* placeholder: shown when an audio file or figure is not uploaded yet */
 		td.is-placeholder audio { display: none; }
 		td.is-placeholder::after,
 		.fig-placeholder {
@@ -42,11 +41,11 @@
 				<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
 					<div class="text-center">
 						<h2 style="font-size: 32px;">NEAT-TTS</h2>
-						<h3 style="font-size: 24px;">Paper Subtitle Goes Here</h3>
-						<h5><a href="#" target="_blank" rel="noopener noreferrer">Code</a>; <a href="#" target="_blank" rel="noopener noreferrer">Paper</a></h5>
+						<h3 style="font-size: 24px;">Native and Efficient Few-Step Text-to-Speech with Group Weighted MeanFlow</h3>
+						<!-- <h5><a href="#" target="_blank" rel="noopener noreferrer">Code</a>; <a href="#" target="_blank" rel="noopener noreferrer">Paper</a></h5> -->
 					</div>
 					<p><b>Abstract:</b>
-						Abstract goes here.
+						Recent years have witnessed remarkable advances in flow-based text-to-speech models, yet their inference remains prohibitively slow due to the large number of sampling steps required. Existing acceleration methods typically rely on step distillation, which increases training complexity and bounds model performance by that of a pretrained teacher. This paper presents <b>NEAT-TTS</b>, a native and efficient zero-shot TTS model capable of synthesizing high-fidelity speech in only four neural function evaluations (NFEs). Built upon a multimodal diffusion transformer, NEAT-TTS leverages the improved MeanFlow objective with CFG conditioning, enabling few-step speech synthesis with flexible guidance strength. We further propose Group wEighted MeanFlow Alignment (GEMA), a simple RL algorithm tailored to MeanFlow models that effectively improves few-step synthesis quality through group-relative advantage weighting. Experimental results demonstrate that NEAT-TTS matches the generation quality of distillation-based few-step models and even rivals that of multi-step models. Trained directly from scratch, NEAT-TTS achieves a WER of 1.91% and a speaker similarity of 0.69 with four steps on LibriSpeech-PC, highlighting the potential of native few-step speech generation.
 					</p>
 					<br>
 					<p>
@@ -55,24 +54,27 @@
 						<li><a href="#model-overview">Model Overview</a></li>
 						<li><a href="#english-zero-shot">English Zero-shot Generation</a></li>
 						<li><a href="#chinese-zero-shot">Chinese Zero-shot Generation</a></li>
+						<li><a href="#results">Main Results</a></li>
+						<li><a href="#ablation">Ablation Studies</a></li>
 					</ul>
 					</p>
+					<p><b>This page is for research demonstration purposes only.</b></p>
 				</div>
-
 
 				<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
 					<h2 id="model-overview" style="text-align: center;">Model Overview</h2>
 					<p style="text-align: center;">
-						<img src="figs/overview.png" data-file="figs/overview.png" style="max-width: 75%; height: auto;">
+						<img src="figs/overview.png" data-file="figs/overview.png" style="max-width: 100%; height: auto;">
 					</p>
-					<p style="text-align: center; font-size: 1.3em;">
-						<b>Figure 1</b>: Figure caption goes here.
+					<p style="text-align: center; font-size: 1.1em;">
+						<b>Figure 1</b>: Overview of NEAT-TTS, a native and efficient few-step zero-shot TTS model. (a) Training with the CFG-conditioned improved MeanFlow objective; (b) four-NFE inference.
 					</p>
+					<p>All samples in this demo page are generated with NEAT-TTS using four NFEs, the EPSS schedule and CFG &omega; = 7, without any step distillation.</p>
 				</div>
-
 
 				<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
 					<h2 id="english-zero-shot" style="text-align: center;">English Zero-shot Generation</h2>
+					<p>Prompt and text from the Seed-TTS test-en set.</p>
 					<div class="table-responsive pt-3">
 						<table class="table table-hover pt-2">
 							<thead>
@@ -114,9 +116,9 @@
 					<br>
 				</div>
 
-
 				<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
 					<h2 id="chinese-zero-shot" style="text-align: center;">Chinese Zero-shot Generation</h2>
+					<p>Prompt and text from the Seed-TTS test-zh set.</p>
 					<div class="table-responsive pt-3">
 						<table class="table table-hover pt-2">
 							<thead>
@@ -158,13 +160,92 @@
 					<br>
 				</div>
 
+				<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
+					<h2 id="results" style="text-align: center;">Main Results</h2>
+					<div class="table-responsive pt-3">
+						<table class="table table-hover table-sm pt-2" style="font-size: 0.8em;">
+							<thead>
+								<tr>
+									<th rowspan="2" style="vertical-align : middle;text-align: center">Model</th>
+									<th rowspan="2" style="vertical-align : middle;text-align: center">Data (hrs)</th>
+									<th rowspan="2" style="vertical-align : middle;text-align: center">Params</th>
+									<th rowspan="2" style="vertical-align : middle;text-align: center">NFE</th>
+									<th colspan="2" style="vertical-align : middle;text-align: center">LibriSpeech-PC</th>
+									<th colspan="2" style="vertical-align : middle;text-align: center">Seed-TTS-en</th>
+									<th colspan="2" style="vertical-align : middle;text-align: center">Seed-TTS-zh</th>
+								</tr>
+								<tr>
+									<th style="vertical-align : middle;text-align: center">WER&darr;</th><th style="vertical-align : middle;text-align: center">SIM-o&uarr;</th>
+									<th style="vertical-align : middle;text-align: center">WER&darr;</th><th style="vertical-align : middle;text-align: center">SIM-o&uarr;</th>
+									<th style="vertical-align : middle;text-align: center">WER&darr;</th><th style="vertical-align : middle;text-align: center">SIM-o&uarr;</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td style="vertical-align : middle;text-align:left;">Ground Truth</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">1.87</td><td style="vertical-align : middle;text-align:center;">0.69</td><td style="vertical-align : middle;text-align:center;">2.14</td><td style="vertical-align : middle;text-align:center;">0.73</td><td style="vertical-align : middle;text-align:center;">1.25</td><td style="vertical-align : middle;text-align:center;">0.76</td></tr>
+								<tr><td style="vertical-align : middle;text-align:left;">VAE Reconstruction</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">2.82</td><td style="vertical-align : middle;text-align:center;">0.68</td><td style="vertical-align : middle;text-align:center;">1.92</td><td style="vertical-align : middle;text-align:center;">0.71</td><td style="vertical-align : middle;text-align:center;">1.29</td><td style="vertical-align : middle;text-align:center;">0.73</td></tr>
+								<tr><td colspan="10" style="text-align:left; font-style: italic; background:#f7f7f7;">AR &amp; Multi-step TTS Models</td></tr>
+								<tr><td style="vertical-align : middle;text-align:left;">CosyVoice</td><td style="vertical-align : middle;text-align:center;">170K</td><td style="vertical-align : middle;text-align:center;">416M</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">4.29</td><td style="vertical-align : middle;text-align:center;">0.61</td><td style="vertical-align : middle;text-align:center;">3.63</td><td style="vertical-align : middle;text-align:center;">0.72</td></tr>
+								<tr><td style="vertical-align : middle;text-align:left;">CosyVoice 2</td><td style="vertical-align : middle;text-align:center;">167K</td><td style="vertical-align : middle;text-align:center;">618M</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">2.57</td><td style="vertical-align : middle;text-align:center;">0.65</td><td style="vertical-align : middle;text-align:center;">1.45</td><td style="vertical-align : middle;text-align:center;"><u>0.75</u></td></tr>
+								<tr><td style="vertical-align : middle;text-align:left;">Spark-TTS</td><td style="vertical-align : middle;text-align:center;">100K</td><td style="vertical-align : middle;text-align:center;">507M</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">1.98</td><td style="vertical-align : middle;text-align:center;">0.58</td><td style="vertical-align : middle;text-align:center;"><b>1.20</b></td><td style="vertical-align : middle;text-align:center;">0.67</td></tr>
+								<tr><td style="vertical-align : middle;text-align:left;">E2-TTS</td><td style="vertical-align : middle;text-align:center;">100K</td><td style="vertical-align : middle;text-align:center;">333M</td><td style="vertical-align : middle;text-align:center;">32&times;2</td><td style="vertical-align : middle;text-align:center;">2.95</td><td style="vertical-align : middle;text-align:center;"><b>0.69</b></td><td style="vertical-align : middle;text-align:center;">2.19</td><td style="vertical-align : middle;text-align:center;"><b>0.71</b></td><td style="vertical-align : middle;text-align:center;">1.97</td><td style="vertical-align : middle;text-align:center;">0.73</td></tr>
+								<tr><td style="vertical-align : middle;text-align:left;">F5-TTS</td><td style="vertical-align : middle;text-align:center;">100K</td><td style="vertical-align : middle;text-align:center;">336M</td><td style="vertical-align : middle;text-align:center;">32&times;2</td><td style="vertical-align : middle;text-align:center;">2.42</td><td style="vertical-align : middle;text-align:center;">0.66</td><td style="vertical-align : middle;text-align:center;">1.83</td><td style="vertical-align : middle;text-align:center;">0.67</td><td style="vertical-align : middle;text-align:center;">1.56</td><td style="vertical-align : middle;text-align:center;"><b>0.76</b></td></tr>
+								<tr><td style="vertical-align : middle;text-align:left;">ZipVoice</td><td style="vertical-align : middle;text-align:center;">100K</td><td style="vertical-align : middle;text-align:center;">123M</td><td style="vertical-align : middle;text-align:center;">16&times;2</td><td style="vertical-align : middle;text-align:center;"><u>1.64</u></td><td style="vertical-align : middle;text-align:center;">0.67</td><td style="vertical-align : middle;text-align:center;">1.70</td><td style="vertical-align : middle;text-align:center;"><u>0.70</u></td><td style="vertical-align : middle;text-align:center;">1.40</td><td style="vertical-align : middle;text-align:center;"><u>0.75</u></td></tr>
+								<tr><td colspan="10" style="text-align:left; font-style: italic; background:#f7f7f7;">Distilled Few-step TTS Models</td></tr>
+								<tr><td style="vertical-align : middle;text-align:left;">ZipVoice-Distill</td><td style="vertical-align : middle;text-align:center;">100K</td><td style="vertical-align : middle;text-align:center;">123M</td><td style="vertical-align : middle;text-align:center;">4</td><td style="vertical-align : middle;text-align:center;"><b>1.51</b></td><td style="vertical-align : middle;text-align:center;">0.66</td><td style="vertical-align : middle;text-align:center;">1.64</td><td style="vertical-align : middle;text-align:center;">0.68</td><td style="vertical-align : middle;text-align:center;"><u>1.39</u></td><td style="vertical-align : middle;text-align:center;"><u>0.75</u></td></tr>
+								<tr><td style="vertical-align : middle;text-align:left;">IntMeanFlow</td><td style="vertical-align : middle;text-align:center;">95K</td><td style="vertical-align : middle;text-align:center;">336M</td><td style="vertical-align : middle;text-align:center;">3</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">&ndash;</td><td style="vertical-align : middle;text-align:center;">1.60</td><td style="vertical-align : middle;text-align:center;">0.65</td><td style="vertical-align : middle;text-align:center;">1.67</td><td style="vertical-align : middle;text-align:center;">0.74</td></tr>
+								<tr><td colspan="10" style="text-align:left; font-style: italic; background:#f7f7f7;">Native Few-step TTS Models</td></tr>
+								<tr style="background:#f3f7fc;"><td style="vertical-align : middle;text-align:left;">NEAT-TTS Small (Ours)</td><td style="vertical-align : middle;text-align:center;">100K</td><td style="vertical-align : middle;text-align:center;">121M</td><td style="vertical-align : middle;text-align:center;">4</td><td style="vertical-align : middle;text-align:center;">1.87</td><td style="vertical-align : middle;text-align:center;"><u>0.68</u></td><td style="vertical-align : middle;text-align:center;"><u>1.38</u></td><td style="vertical-align : middle;text-align:center;">0.66</td><td style="vertical-align : middle;text-align:center;">1.42</td><td style="vertical-align : middle;text-align:center;">0.72</td></tr>
+								<tr style="background:#f3f7fc;"><td style="vertical-align : middle;text-align:left;">NEAT-TTS Base (Ours)</td><td style="vertical-align : middle;text-align:center;">100K</td><td style="vertical-align : middle;text-align:center;">338M</td><td style="vertical-align : middle;text-align:center;">4</td><td style="vertical-align : middle;text-align:center;">1.91</td><td style="vertical-align : middle;text-align:center;"><b>0.69</b></td><td style="vertical-align : middle;text-align:center;"><b>1.31</b></td><td style="vertical-align : middle;text-align:center;">0.68</td><td style="vertical-align : middle;text-align:center;">1.63</td><td style="vertical-align : middle;text-align:center;">0.74</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<p style="text-align: center; font-size: 0.85em;">
+						<b>Table 1</b>: Objective evaluation results on LibriSpeech-PC and Seed-TTS. The best and second-best results are shown in bold and underlined, respectively.
+						N&times;2 indicates N sampling steps with two forward passes per step for classifier-free guidance.
+					</p>
+				</div>
+
+				<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
+					<h2 id="ablation" style="text-align: center;">Ablation Studies</h2>
+					<p><b>Induced instantaneous velocity.</b> Replacing the induced velocity V<sub>&theta;</sub>(z<sub>t</sub>, r, t) in the GEMA loss with the direct instantaneous prediction u<sub>&theta;</sub>(z<sub>t</sub>, t, t) gives similar rewards early in training but collapses after about 1,700 updates.</p>
+					<p style="text-align: center;">
+						<img src="figs/gema_induced_velocity.png" data-file="figs/gema_induced_velocity.png" style="max-width: 85%; height: auto;">
+					</p>
+					<p style="text-align: center; font-size: 1.1em;">
+						<b>Figure 2</b>: GEMA reward curves using induced velocity V<sub>&theta;</sub>(z<sub>t</sub>, r, t) versus instantaneous velocity u<sub>&theta;</sub>(z<sub>t</sub>, t, t).
+					</p>
+					<br>
+					<p><b>Flow ratio.</b> The flow ratio is the probability of setting r = t when constructing V<sub>&theta;</sub>; NEAT-TTS uses 0.75.</p>
+					<p style="text-align: center;">
+						<img src="figs/gema_flow_ratio.png" data-file="figs/gema_flow_ratio.png" style="max-width: 85%; height: auto;">
+					</p>
+					<p style="text-align: center; font-size: 1.1em;">
+						<b>Figure 3</b>: GEMA reward curves under different flow ratios.
+					</p>
+					<br>
+					<p><b>Inference schedules.</b> Four timestep schedules under the same four-step budget: Uniform, Sway Sampling, PolyShift and EPSS. EPSS achieves the best WER and SIM-o on both Seed-TTS test sets.</p>
+					<p style="text-align: center;">
+						<img src="figs/inference_schedule.png" data-file="figs/inference_schedule.png" style="max-width: 85%; height: auto;">
+					</p>
+					<p style="text-align: center; font-size: 1.1em;">
+						<b>Figure 4</b>: Different four-step inference schedules. Left: timestep grids; right: progress covered at each step.
+					</p>
+					<br>
+					<p><b>CFG strength.</b> With guidance strength provided as a model condition, the CFG scale can be changed at inference without an additional forward pass. Increasing CFG generally reduces WER, while overly strong guidance degrades speaker similarity.</p>
+					<p style="text-align: center;">
+						<img src="figs/cfg_strength_zh.png" data-file="figs/cfg_strength_zh.png" style="max-width: 85%; height: auto;">
+					</p>
+					<p style="text-align: center; font-size: 1.1em;">
+						<b>Figure 5</b>: WER and speaker similarity versus CFG scale on Seed-TTS-zh (NFE = 4).
+					</p>
+				</div>
 
 			</article>
 		</main>
 	</div>
 
 	<script>
-	// Swap missing audio / figures for a dashed filename block; drop the file in and refresh to restore.
+	// Missing audio / figures render as a dashed filename block; drop the file in and refresh.
 	document.addEventListener('DOMContentLoaded', function () {
 		document.querySelectorAll('td[data-file]').forEach(function (td) {
 			fetch(td.getAttribute('data-file'), { method: 'HEAD' })

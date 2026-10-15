@@ -8,10 +8,11 @@ Same layout as the [F5-TTS](https://swivid.github.io/F5-TTS/) and [WavTTS](https
 ## Layout
 
 ```
-index.html          # title card / Model Overview / English & Chinese zero-shot tables
+index.html          # title / Model Overview / EN & ZH zero-shot / Main Results / Ablation Studies
 .nojekyll           # disables Jekyll
 css/                # bootstrap.min.css, custom.css, normalize.css
-figs/overview.png   # Figure 1 (model overview)
+figs/overview.png   # Figure 1 (model overview, rendered from NEAT_TTS_Model.pdf p.1)
+figs/gema_induced_velocity.png  gema_flow_ratio.png  inference_schedule.png  cfg_strength_zh.png
 audios/en/prompt/NN.wav   audios/en/gen/NN.wav
 audios/zh/prompt/NN.wav   audios/zh/gen/NN.wav
 ```
@@ -23,10 +24,7 @@ and refresh; no code changes needed.
 
 | Placeholder | Where |
 | --- | --- |
-| Title / subtitle | title card in `index.html` |
-| Code / Paper links | `<h5>` line under the subtitle (`href="#"` for now) |
-| Abstract | `Abstract:` paragraph |
-| Figure 1 + caption | `figs/overview.png`, `Figure 1` caption |
+| Code / Paper links | commented-out `<h5>` line under the subtitle (hidden during anonymous review) |
 | Target text | `Text` column of each table |
 | Audio | 5 rows x (prompt, gen) x (en, zh) = 20 files |
 
